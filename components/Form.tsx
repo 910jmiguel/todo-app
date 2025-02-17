@@ -17,7 +17,7 @@ const Form = ({ addTodo }: FormProps) => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} className="space-x-2">
       <input
         type="text"
         value={text}
