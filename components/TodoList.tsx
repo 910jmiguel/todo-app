@@ -1,9 +1,21 @@
-import React from 'react'
+import { Todo } from "@/types"
+import ToDoItem from "./ToDoItem"
 
-const TodoList = () => {
+type TodoListProps = {
+    todos: Todo[];
+    toggleTodo: (id: number) => void;
+    deleteTodo: (id: number) => void;
+};
+
+const TodoList = ({todos, toggleTodo, deleteTodo}: TodoListProps) => {
   return (
-    <div>TodoList</div>
-  )
+    <div>
+        {todos.length === 0 ? <p>No tasks yet!</p> : null}
+        {todos.map((todo) => (
+           <ToDoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} /> 
+        ))}
+    </div>
+  );
 }
 
 export default TodoList

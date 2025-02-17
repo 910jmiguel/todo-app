@@ -1,8 +1,24 @@
-import React from 'react'
+import { Todo } from "@/types"
 
-const ToDoItem = () => {
+type TodoItemProps = {
+  todo: Todo;
+  toggleTodo: (id: number) => void;
+  deleteTodo: (id: number) => void;
+};
+
+const ToDoItem = ({todo, toggleTodo, deleteTodo}: TodoItemProps) => {
   return (
-    <div>ToDoItem</div>
+    <div>
+      <input 
+        type="checkbox"
+        checked={todo.completed}
+        onChange={() => toggleTodo(todo.id)}      
+      />
+      <span className={todo.completed ? "line-through" : ""}>{todo.text}</span>
+      <button onClick={() => deleteTodo(todo.id)} className="text-red-500">
+        X
+      </button>
+    </div>
   )
 }
 
