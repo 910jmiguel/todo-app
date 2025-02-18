@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type FormProps = {
-  addTodo: (text: string) => void;
+  addTodo: (text: string) => void; //state variable
 };
 
 const Form = ({ addTodo }: FormProps) => {
